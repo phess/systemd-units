@@ -1,0 +1,14 @@
+[Unit]
+Description=Set up the user's SSH agent
+Wants=ssh-agent-write-pidfile.service
+Before=ssh-agent-write-pidfile.service
+
+[Service]
+Environment=SOCKETFILENAME=ssh-agent.socket
+Type=simple
+ExecStart=/usr/bin/ssh-agent -D -a %t/${SOCKETFILENAME}
+PIDFile=%t/ssh-agent.pid
+
+
+[Install]
+WantedBy=default.target

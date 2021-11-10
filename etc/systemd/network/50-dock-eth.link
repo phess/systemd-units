@@ -1,0 +1,10 @@
+[Match]
+# How to find this: udevadm info -p /class/net/<device name>
+Property=ID_MODEL=ThinkPad_TBT3_LAN
+# Alternative if you want to go with tried-and-true MAC address:
+#MACAddress=00:11:22:33:44:55
+
+[Link]
+Description=Ethernet port on the thunderbolt-3 dock brick
+Name=nicdock
+

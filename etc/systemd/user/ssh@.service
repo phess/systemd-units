@@ -1,0 +1,12 @@
+[Unit]
+Description=Start an SSH connection to %i
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+Environment=IN_FOREGROUND=-N
+ExecStart=/usr/bin/ssh $IN_FOREGROUND %i
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,10 @@
+[Unit]
+Description=Create $XDG_RUNTIME_DIR/tmp directory
+
+[Service]
+Type=oneshot
+ExecStart=-/bin/mkdir %t/tmp
+ExecStart=-/bin/ln -s %t/tmp %h/tmp
+
+[Install]
+WantedBy=default.target

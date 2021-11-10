@@ -1,0 +1,13 @@
+[Unit]
+Description=Write the PID file for ssh-agent from the user session's ssh-agent.service unit
+After=ssh-agent.service
+Requires=ssh-agent.service
+
+[Service]
+Type=oneshot
+Environment=PIDFILENAME=ssh-agent.pid
+ExecStart=/bin/bash -c "systemctl --user show -p MainPID ssh-agent.service |cut -f2 -d= > %t/${PIDFILENAME}"
+ExecStart=/bin/bash -c "systemctl --user show -p MainPID ssh-agent.service |cut -f2 -d="
+#ExecStop=/bin/rm %t/${PIDFILENAME}
+
+[Install]

@@ -1,0 +1,6 @@
+[Match]
+#MACAddress=00:11:22:33:44:55
+Property=ID_BUS=pci ID_NET_NAME_PATH=enp0s31f6
+
+[Link]
+Name=niclaptop
